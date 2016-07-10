@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 import mem.edu.mylibrary.jokerAndroidLib;
 
-//import com.example.Jocker;
+import com.example.Jocker;
 import com.google.api.client.extensions.android.http.AndroidHttp;
 import com.google.api.client.extensions.android.json.AndroidJsonFactory;
 import com.google.api.client.googleapis.services.AbstractGoogleClientRequest;
@@ -58,62 +58,17 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view) {
 
-        new EndpointsAsyncTask().execute(new Pair<Context, String>(this, "Manfred"));
 //
-//        Jocker myJoker = new Jocker();
-//        Intent intent = new Intent(this, jokerAndroidLib.class);
-//        intent.putExtra("joke", myJoker.getJoke());
-//        startActivity(intent);
+        Jocker myJoker = new Jocker();
+        Intent intent = new Intent(this, jokerAndroidLib.class);
+        intent.putExtra("joke", myJoker.getJoke());
+        startActivity(intent);
 
         //TextView textView = (TextView) view.findViewById(R.id.text_view);
         //Toast.makeText(this, myJoker.getJoke(), Toast.LENGTH_SHORT).show();
     }
 
 }
-
-    class EndpointsAsyncTask extends AsyncTask<Pair<Context, String>, Void, String> {
-        private static MyApi myApiService = null;
-        private Context context;
-
-        @Override
-        protected String doInBackground(Pair<Context, String>... params) {
-            if(myApiService == null) {  // Only do this once
-//                MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(),
-//                        new AndroidJsonFactory(), null)
-//                        // options for running against local devappserver
-//                        // - 10.0.2.2 is localhost's IP address in Android emulator
-//                        // - turn off compression when running against local devappserver
-//                        .setRootUrl("http://10.0.2.2:8080/_ah/api/")
-//                        .setGoogleClientRequestInitializer(new GoogleClientRequestInitializer() {
-//                            @Override
-//                            public void initialize(AbstractGoogleClientRequest<?> abstractGoogleClientRequest) throws IOException {
-//                                abstractGoogleClientRequest.setDisableGZipContent(true);
-//                            }
-//                        });
-                // end options for devappserver
-
-                MyApi.Builder builder = new MyApi.Builder(AndroidHttp.newCompatibleTransport(), new AndroidJsonFactory(), null)
-                        .setRootUrl("https://joketeller-1367.appspot.com/_ah/api/");
-
-                myApiService = builder.build();
-            }
-
-            context = params[0].first;
-            String name = params[0].second;
-
-            try {
-                return myApiService.sayHi(name).execute().getData();
-            } catch (IOException e) {
-                return e.getMessage();
-            }
-        }
-
-        @Override
-        protected void onPostExecute(String result) {
-
-            Toast.makeText(context, result, Toast.LENGTH_LONG).show();
-        }
-    }
 
 
 //}
