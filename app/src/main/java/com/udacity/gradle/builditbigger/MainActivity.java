@@ -9,6 +9,7 @@ import android.util.Pair;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -25,6 +26,7 @@ import java.io.IOException;
 
 
 public class MainActivity extends ActionBarActivity {
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -58,12 +60,10 @@ public class MainActivity extends ActionBarActivity {
 
     public void tellJoke(View view) {
 
-//
         Jocker myJoker = new Jocker();
         Intent intent = new Intent(this, jokerAndroidLib.class);
         intent.putExtra("joke", myJoker.getJoke());
         startActivity(intent);
-
         //TextView textView = (TextView) view.findViewById(R.id.text_view);
         //Toast.makeText(this, myJoker.getJoke(), Toast.LENGTH_SHORT).show();
     }
