@@ -1,6 +1,12 @@
 [![API](https://img.shields.io/badge/API-15%2B-green.svg?style=flat)](https://android-arsenal.com/api?level=15)
 # Gradle for Android and Java
 
+## Requirements
+
+Must have a Google Cloud Endpoints account.
+
+## About
+
 Forked out of [udacity/ud867](https://github.com/udacity/ud867/tree/master/FinalProject)
 
 This project consist of four modules. A Java library that provides jokes, a Google Could Endpoints
