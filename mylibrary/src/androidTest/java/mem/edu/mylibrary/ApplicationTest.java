@@ -13,9 +13,6 @@ import java.util.concurrent.TimeUnit;
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
 public class ApplicationTest extends ApplicationTestCase<Application> {
-//    public ApplicationTest() {
-//        super(Application.class);
-//    }
 
     String mJsonString = null;
     Exception mError = null;
@@ -38,31 +35,13 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     public void testAlbumGetTask() throws Throwable {
 
 
-
+        //just testing the AsyncTask with "hahaha"
         EndpointsAsyncTask endpointsAsyncTask = new EndpointsAsyncTask();
-
-//        runTestOnUiThread(new Runnable() {
-//
-//            @Override
-//            public void run() {
-//                endpointsAsyncTask.execute("Do something");
-//            }
-//        });
-
         endpointsAsyncTask.execute(new Pair<Context, String>(getContext(), "Hahaha"));
 
+        //got to wait for the server's response
         signal.await(30, TimeUnit.SECONDS);
         assertTrue( "See me ?", true );
-
-//        String joke = "hah";
-//        EndpointsAsyncTask task = new EndpointsAsyncTask();
-//        task.execute(new Pair<Context, String>(this, joke));
-//        signal.await();
-//
-//        assertNull(mError);
-//        assertFalse(TextUtils.isEmpty(mJsonString));
-//        assertTrue(mJsonString.startsWith("{\"playlist\""));
-//        assertTrue(mJsonString.endsWith("}"));
 
     }
 }

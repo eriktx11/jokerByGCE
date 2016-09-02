@@ -23,7 +23,7 @@ import com.google.api.client.googleapis.services.GoogleClientRequestInitializer;
 import com.google.endpoint.backend.myApi.MyApi;
 
 import java.io.IOException;
-
+//my custom made library added here : )
 
 public class MainActivity extends ActionBarActivity {
 
@@ -58,19 +58,16 @@ public class MainActivity extends ActionBarActivity {
     }
 
 
+    //free version
     public void tellJoke(View view) {
 
-        Jocker myJoker = new Jocker();
+        Jocker myJoker = new Jocker();//calling the custom library :)
         Intent intent = new Intent(this, jokerAndroidLib.class);
         intent.putExtra("joke", myJoker.getJoke());
         startActivity(intent);
-        //TextView textView = (TextView) view.findViewById(R.id.text_view);
-        //Toast.makeText(this, myJoker.getJoke(), Toast.LENGTH_SHORT).show();
     }
 
 }
 
-
-//}
 
 

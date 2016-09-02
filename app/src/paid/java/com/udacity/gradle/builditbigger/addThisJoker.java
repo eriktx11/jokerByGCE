@@ -14,6 +14,7 @@ public class addThisJoker extends Fragment {
 
     }
 
+    //paid version calls different layout. Piece of cake
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
